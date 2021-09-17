@@ -1,0 +1,24 @@
+﻿@model FoodsListViewModel
+
+    <head>
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
+
+    </head>
+
+<div>
+    <form asp-controller="Food" asp-action="Search" method="get" class="float-right">
+        <input type="search" placeholder="Dishname" name="dish" /> <button type="submit" class="btn btn-outline-primary btn-sm"><i class="fa fa-search"></i></button>
+    </form>
+</div>
+<br/>
+<div class="row" style="margin:40px">
+
+    @foreach (var food in Model.Foods)
+    {
+        <partial name="_FoodCard" model="food" />
+
+    }
+
+</div>
+
+ 

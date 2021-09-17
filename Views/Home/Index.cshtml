@@ -1,0 +1,56 @@
+﻿@model HomeViewModel
+
+<h2 class="text-center" style="color: #9A1750">Welcome to ExpressEats!!!</h2>
+<h5 class="text-center" style="color:#9A1750">Your happy place..</h5>
+<br />
+
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/Images/car1.jpg" class="bd-placeholder-img" width="100%" height="100%" alt="...">
+            <div class="container">
+                <div class="carousel-caption text-start">
+                    <h1>Welcome Foodies!!</h1>
+                    <p>The only thing we love more than food is you!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden"></span>
+    </button>
+</div>
+
+<br />
+<br />
+
+<div class="card-deck">
+    <div class="card shadow">
+        <div class="card-body">
+            <h2 class="text-center" style="color: #9A1750"> Todays Special!</h2>
+            <br />
+            <div class="row">
+
+                @foreach (var food in Model.FoodOfTheWeek)
+                {
+                    <partial name="_FoodCard" model="food" />
+                }
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+

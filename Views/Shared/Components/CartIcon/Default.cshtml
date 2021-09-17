@@ -1,0 +1,13 @@
+﻿@model ShoppingCartViewModel
+    <head>
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
+     </head>
+@if (Model.ShoppingCart.ShoppingCartItems.Count > 0)
+{
+    <li class="nav-item">
+        <a asp-controller="ShoppingCart" asp-action="Index" style="color:orange;">
+            <span class="fa fa-shopping-cart"></span>
+            <span>@Model.ShoppingCart.ShoppingCartItems.Count</span>
+        </a>
+    </li>
+}

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Category>
+    <head>
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
+
+    </head>
+        <li class="nav-item dropdown">
+            <a asp-controller="Food" asp-action="Index" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">Dishes<b class="caret"></b></a>
+            
+            <ul class="dropdown-menu">
+                @foreach (var category in Model)
+                {
+                    <li>
+                        <a asp-controller="Food" asp-action="Index"
+                           asp-route-category="@category.CategoryName" class="dropdown-item">@category.CategoryName</a>
+                    </li>
+
+                }
+                <li>
+                    <a asp-controller="Food" asp-action="Index" asp-route-category="" class="dropdown-item">View All Dishes</a>
+                </li>
+            </ul>
+        </li>

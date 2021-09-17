@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ExpressEats</title>
+   
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
+    <style>
+       
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container">
+                <img src="~/Images/Logo.png" width="50" height="50">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ExpressEats</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">
+                                <i class="fa fa-home"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item"><i class="fas fa-burger-soda"></i></li>
+                        @await Component.InvokeAsync("CategoryMenu")
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Food" asp-action="Index">Food</a>
+                        </li>
+                        @await Component.InvokeAsync("CartIcon")
+                        <li class="nav-item" style="padding-left : 400px"><partial name="_LoginPartial" /></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <br />
+    <br />
+    <footer class="border-top footer text-muted">
+        <div class="container text-lg-center">
+            &copy; 2021 - Express Eats Site - <a asp-area="" asp-controller="Home" asp-action="Index">FoodCorner</a>
+            <div class="social">
+                Follow us:
+                <br />
+                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>  | 
+                <a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>  |  
+                <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
